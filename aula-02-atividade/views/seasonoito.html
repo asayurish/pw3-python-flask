@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Temporada 8</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0d1117;
+    color: #e6edf3;
+}
+
+/* HEADER */
+.header {
+    max-width: 1000px;
+    margin: 60px auto 30px auto;
+    padding: 0 20px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.linha {
+    width: 60px;
+    height: 4px;
+    background-color: #ef4444;
+    margin: 15px 0 25px 0;
+}
+
+.header p {
+    max-width: 700px;
+    line-height: 1.6;
+    color: #9da7b3;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* TABELA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #21262d;
+}
+
+th {
+    background-color: #161b22;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #161b22;
+}
+
+/* BOTÃO */
+.voltar {
+    display: inline-block;
+    margin: 50px 0;
+    padding: 8px 18px;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #e6edf3;
+    transition: 0.2s;
+}
+
+.voltar:hover {
+    border-color: #ef4444;
+    color: #ef4444;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Temporada 8</h1>
+    <div class="linha"></div>
+    <p>
+        A temporada final apresenta confrontos decisivos entre heróis e vilões,
+        culminando no embate entre Izuku Midoriya e os maiores antagonistas da série.
+    </p>
+</div>
+
+<div class="container">
+
+    <h2>Personagens Presentes</h2>
+
+    <table>
+        <tr>
+            <th>Personagem</th>
+            <th>Individualidade</th>
+            <th>Papel na Temporada</th>
+        </tr>
+        <tr>
+            <td>Izuku Midoriya</td>
+            <td>One For All</td>
+            <td>Protagonista</td>
+        </tr>
+        <tr>
+            <td>Shigaraki Tomura</td>
+            <td>Decaimento</td>
+            <td>Antagonista Principal</td>
+        </tr>
+        <tr>
+            <td>All For One</td>
+            <td>Roubo de Individualidades</td>
+            <td>Vilão Supremo</td>
+        </tr>
+        <tr>
+            <td>Katsuki Bakugo</td>
+            <td>Explosão</td>
+            <td>Herói em Evolução</td>
+        </tr>
+        <tr>
+            <td>Shoto Todoroki</td>
+            <td>Gelo e Fogo</td>
+            <td>Herói Estratégico</td>
+        </tr>
+        <tr>
+            <td>Endeavor</td>
+            <td>Manipulação de Fogo</td>
+            <td>Herói Profissional</td>
+        </tr>
+    </table>
+
+    <a href="{{ url_for('home') }}" class="voltar">Voltar para página inicial</a>
+
+</div>
+
+</body>
+</html>

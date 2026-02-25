@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plus Ultra Hub</title>
+<style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 2.5rem;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #1e293b;
+            width: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .card h2 {
+            padding: 15px;
+            background: #111827;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-Vindo ao site das melhores temporadas de Boku no Hero Academia</h1>
+    <h3>Veja quais heróis e vilões participaram das temporadas mais impactantes do anime.</h3>
+    <hr>
+
+    <h1>As 2 Melhores Temporadas de My Hero Academia</h1>
+
+    <div class="container">
+
+        <a href="/seasondois" class="card">
+            <img src="{{ url_for('static', filename='img/s2.png') }}">
+            <h2>Temporada 2</h2>
+        </a>
+
+        <a href="/seasonoito" class="card">
+            <img src="{{ url_for('static', filename='img/s8.png') }}">
+            <h2>Temporada 8</h2>
+        </a>
+
+                <a href="/form" class="card">
+            <img src="{{ url_for('static', filename='img/capa.png') }}">
+            <h2>Registro de Temporadas</h2>
+        </a>
+
+    </div>
+</body>
+</html>

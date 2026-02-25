@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Registrar Episódio</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0d1117;
+    color: #e6edf3;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #161b22;
+    border-radius: 10px;
+    border: 1px solid #21262d;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.linha {
+    width: 60px;
+    height: 4px;
+    background-color: #3b82f6;
+    margin: 15px 0 30px 0;
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    background-color: #0d1117;
+    color: #e6edf3;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* CHECKBOX GROUP */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+}
+
+/* BOTÃO */
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #3b82f6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #2563eb;
+}
+
+.voltar {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #9da7b3;
+    font-size: 0.9rem;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Registrar Novo Episódio</h1>
+    <div class="linha"></div>
+
+    <form>
+
+        <!-- Nome do episódio -->
+        <div>
+            <label>Nome do Episódio</label>
+            <input type="text" placeholder="Ex: O Poder do One For All">
+        </div>
+
+        <!-- Temporada -->
+        <div>
+            <label>Temporada</label>
+            <select>
+                <option>Temporada 1</option>
+                <option>Temporada 2</option>
+                <option>Temporada 3</option>
+                <option>Temporada 4</option>
+                <option>Temporada 5</option>
+                <option>Temporada 6</option>
+                <option>Temporada 7</option>
+                <option>Temporada 8</option>
+            </select>
+        </div>
+
+        <!-- Duração -->
+        <div>
+            <label>Duração (em minutos)</label>
+            <input type="number" placeholder="Ex: 24">
+        </div>
+
+        <!-- Personagens -->
+        <div>
+            <label>Personagens que aparecem</label>
+            <div>
+    <label>Personagens que aparecem</label>
+    <input type="text" placeholder="Separe os nomes por vírgula">
+</div>
+        </div>
+
+        <!-- Descrição -->
+        <div>
+            <label>Breve Descrição</label>
+            <textarea placeholder="Descreva o que acontece no episódio..."></textarea>
+        </div>
+
+        <button type="submit">Registrar Episódio</button>
+
+    </form>
+
+    <a href="{{ url_for('home') }}" class="voltar">Voltar para página inicial</a>
+
+</div>
+
+</body>
+</html>
