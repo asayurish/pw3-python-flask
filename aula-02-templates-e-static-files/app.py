@@ -22,7 +22,20 @@ def home():
 
 # def serve para criar funções no Python
 def games():
-    return render_template('games.html')
+    #Criando variáveis para passar as informações de um jogo
+    titulo = "Silk Song"
+    ano = 2025
+    categoria = "Metroidvania"
+    
+    # Criando vetor (lista)
+    jogadores = ['Eduardo', 'Ana', 'Guilherme', 'Vitor', 'Antonio']
+    
+    return render_template('games.html',
+                           # Enviando as variáveis para a página HTML
+                           titulo=titulo,
+                           ano=ano,
+                           categoria=categoria,
+                           jogadores=jogadores)
 
 
 @app.route('/consoles')
@@ -30,7 +43,10 @@ def games():
 
 # def serve para criar funções no Python
 def consoles():
-    return render_template('consoles.html')
+    consoles = ['PlayStation', 'Xbox Series X', 'Xbox Series S', 'Nintendo Switch', 'Nintendo Switch 2']
+    
+    return render_template('consoles.html',
+                           consoles=consoles)
 
 
 # iniciando o servidor web (tipo apache, mas no python faz aqui mesmo)
