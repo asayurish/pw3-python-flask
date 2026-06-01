@@ -16,12 +16,12 @@ app = Flask(__name__, template_folder='views')
 def home():
     return render_template('index.html')
 
-@app.route('/form')
+@app.route('/cadhero')
 # o @ é pra especificar acho
 
 # def serve para criar funções no Python
-def form():
-    return render_template('form.html')
+def cadhero():
+    return render_template('cadhero.html')
 
 #criando a rota principal do site
 @app.route('/seasondois')
