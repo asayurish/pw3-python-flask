@@ -1,8 +1,10 @@
 #importando o render_template
 # motor para renderizar as páginas
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
+#importando o markup safe
+from markupsafe import Markup
 #importando o model game e o  sqlalchemy
-from models.database import Game, Console, db, Usuario
+from models.database import Game, Console, db, Usuario 
 #importando werkzeug
 from werkzeug.security import generate_password_hash
 
@@ -179,6 +181,15 @@ def init_app(app):
             #coletando os dados do formulário
             email = request.form['email']
             senha = request.form['senha']
+            # verificando se o usuário já existe
+            #buscando o usuario pelo e-mail
+            usuario = Usuario.query.filter_by(email=email).first()
+            #veruficando se o usuario tem valor
+            if usuario:
+                msg = Markup("Usuário já cadastrado. Faça o <a href='/login'>login</a>")
+                flash(msg, 'danger')
+                return redirect(url_for('cadastro'))
+            
             #gerando o hash da senha (criptografia)
             senha_criptografada = generate_password_hash(senha, method='scrypt')
             #enviando os dados para o model
@@ -186,10 +197,14 @@ def init_app(app):
             #cadastrando novo banco
             db.session.add(novo_usuario)
             db.session.commit()
-            return redirect(url_for('login'))
+            #gerando a mensagem de sucesso
+            msgCad = Markup("Cadastro realizado com sucesso! Faça o <a href='/login'>login</a>")
+            flash(msgCad, 'success')
+            return redirect(url_for('cadastro'))
         return render_template('cadastro.html')
     
     @app.route('/login', methods=['GET', 'POST'])
     def login():
-        return "Bem-vindo a página de login!"
+        return render_template('login.html')
+    
     

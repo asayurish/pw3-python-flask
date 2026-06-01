@@ -23,6 +23,9 @@ app.config['DATABASE_NAME'] = DB_NAME
 # passando o endereço do banco para o flask-SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://root@localhost/{DB_NAME}'
 
+# criando uma chave secreta (para flash messages e sessões)
+app.config['SECRET_KEY'] = 'meusegredo'
+
 #Eviando a variável APP (FLASK) para as rotas
 routes.init_app(app)
 
