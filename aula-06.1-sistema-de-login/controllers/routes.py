@@ -1,12 +1,12 @@
 #importando o render_template
 # motor para renderizar as páginas
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, session
 #importando o markup safe
 from markupsafe import Markup
 #importando o model game e o  sqlalchemy
 from models.database import Game, Console, db, Usuario 
 #importando werkzeug
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 #criando a função para receber o flask (app)
 def init_app(app):
@@ -205,6 +205,33 @@ def init_app(app):
     
     @app.route('/login', methods=['GET', 'POST'])
     def login():
+        # VERIFICANDO SE O MÉTODO É POST
+        if request.method == 'POST':
+            # COLETANDO DADOS DO USUÁRIO
+            email = request.form['email']
+            senha = request.form['senha']
+            #BUSCANDO O USUÁRIO NO BANCO
+            usuario = Usuario.query.filter_by(email=email).first()
+            # SE O USUÁRIO EXISTIR
+            if usuario:
+                # VERIFICANDO A SENHA (hash)
+                if check_password_hash(usuario.senha,senha):
+                    # AQUI SERÁ CRIADO A SESSÃO
+                    session['usuario_id'] = usuario.id
+                    session['usuario_email'] = usuario.email
+                    # Mensagem de feedback
+                    msgLogin = "Você foi autenticado com sucesso! Bem-vindo!"
+                    flash(msgLogin, 'success')
+                    return redirect(url_for('home'))
+                # CASO SENHA INCORRETA
+                else:
+                    flash('Falha no login. Verifique os dados e tente novamente!', 'danger')
+                    return redirect(url_for('login'))
+            # SE O USUÁRIO NÃO FOR ENCONTRADO
+            else:
+                flash('O usuário informado não existe.', 'danger')
+                return redirect(url_for('login'))
+                 
         return render_template('login.html')
     
     

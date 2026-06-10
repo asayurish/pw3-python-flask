@@ -26,6 +26,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://root@localhost/{DB_NAME}'
 # criando uma chave secreta (para flash messages e sessões)
 app.config['SECRET_KEY'] = 'meusegredo'
 
+# definindo o tempo da sessão
+app.config['PERMANENT_SESSION_LIFETIME'] = 3600 # 1 hora
+
 #Eviando a variável APP (FLASK) para as rotas
 routes.init_app(app)
 
