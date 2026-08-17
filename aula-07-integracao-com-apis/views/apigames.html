@@ -13,6 +13,8 @@
                     <h5>{{jogo.title}}</h5>
                     <p>{{jogo.genre}}</p>
                     <p>{{jogo.platform}}</p>
+                    <!-- BOTÃO DE MAIS INFORMAÇÕES -->
+                     <a href="{{url_for('apigames', id=jogo.id)}}" class="btn btn-dark">+ Informações</a>
                     <!-- BOTÃO PARA INICIAR O JOGO -->
                      <a href="{{jogo.game_url}}" target="_blank" class="btn btn-danger">Jogar</a>
                 </div>
